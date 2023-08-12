@@ -1,5 +1,3 @@
-import { User } from "../../models/auth/user";
-
 export interface UserLogin {
   login(params: UserLogin.Params): Promise<any>;
 }

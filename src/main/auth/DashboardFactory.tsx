@@ -7,7 +7,6 @@ import { LocalLoggedInUser } from "../../data/usecases/auth/local-logged-in-user
 import DashboardPage from "../../presentation/pages/DashboardPage";
 import { RemoteFetchDashboards } from "./../../data/usecases/remote-fetch-dashboards";
 import Endpoints from "../../domain/endpoints";
-import { UserLoginStore } from "../../store/main/UserLoginStore";
 
 const DashboardFactory = () => {
   const navigate = useNavigate();

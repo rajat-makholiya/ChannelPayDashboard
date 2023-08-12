@@ -1,20 +1,11 @@
-import { constant, result } from "lodash";
 import React, { useEffect } from "react";
-import {
-  CircularProgress,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
-  Stack,
-} from "@mui/material";
+import { CircularProgress } from "@mui/material";
 import { Typography, TypographySize } from "../ga-components/Typography";
 import Navbar from "../components/Navbar";
 import { LoggedInUser } from "../../domain/usages/auth/logged-in-user";
 import { pageRoutes } from "../../routes";
 import { useNavigate } from "react-router-dom";
 import { FetchDashboards } from "../../domain/usages/fetch-dashboards";
-import DropDownLoading from "../components/DropdownSkeleton";
 import { DashboardLinks } from "../../domain/models/dashboardLinks";
 
 type Props = {
@@ -150,7 +141,7 @@ const DashboardPage = (props: Props) => {
           {onFrame && (
             <iframe
               id="dashboard"
-              height="100%"
+              height="85%"
               width="100%"
               src={dashboardUrl}
               frameBorder={0}

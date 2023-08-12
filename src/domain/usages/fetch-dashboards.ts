@@ -4,6 +4,5 @@ export interface FetchDashboards {
 
 export namespace FetchDashboards {
   export type Params = {
-    // user_id: string | number;
   };
 }

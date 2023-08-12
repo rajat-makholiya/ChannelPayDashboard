@@ -16,16 +16,9 @@ import { LoggedInUser } from "../../../domain/usages/auth/logged-in-user";
 import { useNavigate } from "react-router-dom";
 import { pageRoutes } from "../../../routes";
 import { User } from "../../../domain/models/auth/user";
-import {
-  CircularProgress,
-  FormControl,
-  InputLabel,
-  Select,
-  Stack,
-} from "@mui/material";
+import { FormControl, Select } from "@mui/material";
 import DropDownLoading from "../DropdownSkeleton";
 
-const settings = ["Logout"];
 type Props = {
   loggedInUser: LoggedInUser;
   loggedInUserDetails: User | null;
@@ -87,7 +80,6 @@ const ResponsiveAppBar = (props: Props) => {
                 justifyContent: "center",
               }}
             >
-              {/* <InputLabel sx={{ alignItems: "center" }}>Name</InputLabel> */}
               <Select
                 value={props.selectedDashboard}
                 sx={{

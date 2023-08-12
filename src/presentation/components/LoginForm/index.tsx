@@ -11,7 +11,6 @@ import {
 import { LoggedInUser } from "../../../domain/usages/auth/logged-in-user";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { UserLogin } from "../../../domain/usages/auth/user-login";
-import { UserLoginStore } from "../../../store/main/UserLoginStore";
 import { pageRoutes } from "../../../routes";
 import { CircularProgress } from "@mui/material";
 
@@ -24,12 +23,10 @@ type OtpLoginFormInput = {
 type Props = {
   remoteUserLogin: UserLogin;
   loggedInUser: LoggedInUser;
-  setOpenResetPasswordModal: Function;
 };
 const LoginForm: React.FC<Props> = ({
   remoteUserLogin,
   loggedInUser,
-  setOpenResetPasswordModal,
 }) => {
   const navigate = useNavigate();
   const [errorMessages, setErrorMessages] = useState("");
@@ -40,7 +37,6 @@ const LoginForm: React.FC<Props> = ({
     formState: { errors },
     handleSubmit,
   } = useForm<OtpLoginFormInput>();
-  const { setUserData } = UserLoginStore();
 
   const onSubmit: SubmitHandler<OtpLoginFormInput> = async (data) => {
     setLoadingLogin(true);
@@ -48,7 +44,6 @@ const LoginForm: React.FC<Props> = ({
 
     if (result.status == 200) {
       setLoadingLogin(false);
-      setUserData(result.data.token);
       loggedInUser.setToken(result.data.token);
       navigate(pageRoutes.dashboard);
     } else if (result.status == 400) {
@@ -117,16 +112,6 @@ const LoginForm: React.FC<Props> = ({
         onClick={handleSubmit(onSubmit)}
         className="h-[40px] mt-10 w-full rounded-lg"
       />
-      {/* <div className="mt-5" style={{ justifyContent: "right" }}>
-        <p
-          className=" text-400"
-          style={{ color: "#0c048c" }}
-          onClick={() => setOpenResetPasswordModal(true)}
-        >
-          Forgot Password?
-        </p>
-        
-      </div> */}
     </>
   );
 };

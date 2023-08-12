@@ -1,7 +1,5 @@
 import { Constants } from "../../../common/Constants";
-import HTTPStatusCode from "../../../domain/enums/httpStatusCode";
 import { User } from "../../../domain/models/auth/user";
-import { OtpLogin } from "../../../domain/usages/auth/otp-login";
 import { UserLogin } from "../../../domain/usages/auth/user-login";
 import { HttpConstants } from "../../protocols/http/http-constants";
 import { HttpPostClient } from "../../protocols/http/http-post-client";

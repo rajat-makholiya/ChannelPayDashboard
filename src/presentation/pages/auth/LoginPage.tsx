@@ -12,7 +12,6 @@ import {
 } from "../../ga-components/Typography";
 import { useNavigate } from "react-router-dom";
 import { UserLogin } from "../../../domain/usages/auth/user-login";
-import ResetPasswordModal from "../../components/LoginForm/ResetPasswordModal";
 
 type Props = {
   remoteUserLogin: UserLogin;
@@ -23,7 +22,6 @@ const LoginPage: React.FC<Props> = ({ remoteUserLogin, loggedInUser }) => {
   const mobile = !useMediaQuery(Constants.MOBILE);
   const loggedInUserDetails = loggedInUser.getUser();
   const navigate = useNavigate();
-  const [openResetPasswordModal, setOpenResetPasswordModal] = useState(false);
 
   React.useEffect(() => {
     if (loggedInUserDetails) navigate("/dashboard");
@@ -61,7 +59,6 @@ const LoginPage: React.FC<Props> = ({ remoteUserLogin, loggedInUser }) => {
               <div className="mx-7 pb-7">
                 <LoginForm
                   remoteUserLogin={remoteUserLogin}
-                  setOpenResetPasswordModal={setOpenResetPasswordModal}
                   loggedInUser={loggedInUser}
                 />
               </div>
@@ -118,17 +115,12 @@ const LoginPage: React.FC<Props> = ({ remoteUserLogin, loggedInUser }) => {
                 <LoginForm
                   remoteUserLogin={remoteUserLogin}
                   loggedInUser={loggedInUser}
-                  setOpenResetPasswordModal={setOpenResetPasswordModal}
                 />
               </Card>
             </div>
           </div>
         </div>
       )}
-      {/* <ResetPasswordModal
-        resetPasswordModal={openResetPasswordModal}
-        closeModals={setOpenResetPasswordModal}
-      /> */}
     </>
   );
 };

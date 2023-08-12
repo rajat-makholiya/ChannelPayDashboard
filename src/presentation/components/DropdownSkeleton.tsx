@@ -1,8 +1,6 @@
 import { Skeleton } from "@mui/material";
 
-type Props = {};
-
-const DropDownLoading = (props: Props) => {
+const DropDownLoading = () => {
   return (
     <Skeleton
       variant="rectangular"
